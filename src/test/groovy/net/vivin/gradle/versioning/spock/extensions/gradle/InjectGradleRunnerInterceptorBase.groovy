@@ -9,7 +9,7 @@ abstract class InjectGradleRunnerInterceptorBase implements IMethodInterceptor {
         .readLines()
         .collect { new File(it) }
         .collect { it.absolutePath }
-        .collect { "/$it/" }
+        .collect { "'$it'" }
         .join(", ")
 
     private static supportedProjectDirProviderTypes = ProjectDirProviderCategory.methods

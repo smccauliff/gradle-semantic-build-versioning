@@ -64,7 +64,7 @@ class MultiProjectSpecification extends Specification {
         new File(gradleRunner.projectDir, 'settings.gradle') << """
             rootProject.name = 'root'
             includeFlat 'sub'
-            project(':sub').projectDir = new File(/$testRepository2.repository.workTree/)
+            project(':sub').projectDir = new File('$testRepository2.repository.workTree')
         """.stripIndent()
         new File(gradleRunner.projectDir, 'build.gradle') << 'allprojects { println "$it.name version: $version" }'
         new File(testRepository2.repository.workTree, 'semantic-build-versioning.gradle').createNewFile()
@@ -89,7 +89,7 @@ class MultiProjectSpecification extends Specification {
         new File(gradleRunner.projectDir, 'settings.gradle') << """
             rootProject.name = 'root'
             includeFlat 'sub'
-            project(':sub').projectDir = new File(/$testRepository2.repository.workTree/)
+            project(':sub').projectDir = new File('$testRepository2.repository.workTree')
         """.stripIndent()
         new File(testRepository2.repository.workTree, 'semantic-build-versioning.gradle').createNewFile()
 
